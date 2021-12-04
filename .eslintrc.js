@@ -21,10 +21,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: [
-    "react",
-    "@typescript-eslint",
-  ],
+  plugins: ["react", "@typescript-eslint"],
   rules: {
     "react/display-name": "off",
     "@typescript-eslint/explicit-function-return-type:": "off",
@@ -34,9 +31,8 @@ module.exports = {
       "error",
       {
         endOfLine: "auto",
-      }
+      },
     ],
-
   },
   ignorePatterns: [".eslintrc.js"],
   settings: {

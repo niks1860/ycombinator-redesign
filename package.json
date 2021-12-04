@@ -5,6 +5,9 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "redux-saga": "^1.1.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -24,7 +27,10 @@
     ]
   },
   "lint-staged": {
-    "src/**/*": ["prettier --write", "eslint"]
+    "src/**/*": [
+      "prettier --write",
+      "eslint"
+    ]
   },
   "browserslist": {
     "production": [
@@ -46,6 +52,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "eslint": "^7.32.0",

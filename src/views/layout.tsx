@@ -3,7 +3,6 @@ import { Outlet, useNavigate } from "react-router-dom"
 import {
   AppBar,
   Box,
-  Container,
   IconButton,
   Menu,
   Button,
@@ -58,74 +57,72 @@ const Layout = () => {
   return (
     <div>
       <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ mr: 2, display: { xs: "none", sm: "flex" } }}
-            >
-              Hacker News
-            </Typography>
+        <Toolbar disableGutters>
+          <Typography
+            variant="h5"
+            noWrap
+            component="div"
+            sx={{ mr: 2, ml: 2, display: { xs: "none", sm: "flex" } }}
+          >
+            Hacker News
+          </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="Naigation links"
-                aria-control="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: "block", sm: "none" },
-                }}
-              >
-                {menus.map(({ text, to }) => (
-                  <MenuItem key={to} onClick={() => navigateTo(to)}>
-                    <Typography textAlign="center">{text}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="Naigation links"
+              aria-control="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
             >
-              Hacker News
-            </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", sm: "none" },
+              }}
+            >
               {menus.map(({ text, to }) => (
-                <Button
-                  key={to}
-                  onClick={() => navigateTo(to)}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {text}
-                </Button>
+                <MenuItem key={to} onClick={() => navigateTo(to)}>
+                  <Typography textAlign="center">{text}</Typography>
+                </MenuItem>
               ))}
-            </Box>
-          </Toolbar>
-        </Container>
+            </Menu>
+          </Box>
+
+          <Typography
+            variant="h5"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}
+          >
+            Hacker News
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
+            {menus.map(({ text, to }) => (
+              <Button
+                key={to}
+                onClick={() => navigateTo(to)}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                {text}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
       </AppBar>
       <Box component="main" sx={{ p: 3 }}>
         <Outlet />

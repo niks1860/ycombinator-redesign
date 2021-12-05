@@ -1,6 +1,7 @@
 import createSagaMiddleware from "@redux-saga/core"
 import { applyMiddleware, compose, createStore } from "redux"
-import reducers, { preloadedState } from "redux/reducers"
+import reducers, { preloadedState, StoreState } from "redux/reducers"
+import { StoriesState } from "redux/reducers/Stories"
 import rootSaga from "redux/sagas/index,"
 
 declare global {
@@ -13,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 const middlewares = [sagaMiddleware]
 
-function configureStore(preloadedState: any) {
+function configureStore(preloadedState: StoreState) {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose
   const store = createStore(
     reducers,

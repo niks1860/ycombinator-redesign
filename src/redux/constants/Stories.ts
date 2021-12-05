@@ -1,0 +1,5 @@
+export const GET_STORY_IDS = "GET_STORY_IDS"
+export const SET_STORY_IDS = "SET_STORY_IDS"
+export const GET_VIEW = "GET_VIEW"
+export const SET_VIEW = "SET_VIEW"
+export const SET_ITEMS = "SET_ITEMS"

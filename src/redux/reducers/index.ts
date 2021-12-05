@@ -1,7 +1,16 @@
 import { combineReducers } from "redux"
+import stories, { initStoriesState, StoriesState } from "./Stories"
 
-const reducers = combineReducers({})
+export interface StoreState {
+  stories: StoriesState
+}
 
-export const preloadedState = {}
+const reducers = combineReducers<StoreState>({
+  stories: stories,
+})
+
+export const preloadedState: StoreState = {
+  stories: initStoriesState,
+}
 
 export default reducers

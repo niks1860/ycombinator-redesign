@@ -30,7 +30,7 @@ function* fetchItems(ids: string[]) {
   const items: Items = {}
   const data: Story[] = yield call(getItems, ids)
   data.forEach((story) => (items[story.id] = story))
-  yield items
+  return items
 }
 
 export function* fetchStoriesView() {

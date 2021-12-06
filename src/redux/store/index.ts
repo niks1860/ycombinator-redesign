@@ -1,7 +1,6 @@
 import createSagaMiddleware from "@redux-saga/core"
 import { applyMiddleware, compose, createStore } from "redux"
 import reducers, { preloadedState, StoreState } from "redux/reducers"
-import { StoriesState } from "redux/reducers/Stories"
 import rootSaga from "redux/sagas/index,"
 
 declare global {

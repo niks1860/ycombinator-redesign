@@ -9,7 +9,7 @@ import {
 import { GET_STORY_IDS, GET_VIEW } from "redux/constants/Stories"
 import { StoreState } from "redux/reducers"
 import { Items } from "redux/reducers/Stories"
-import { getItems, getStoryIds, Story } from "services/APIService"
+import { getItem, getStoryIds, Story } from "services/APIService"
 
 export function* fetchStoryIds() {
   yield takeEvery(GET_STORY_IDS, function* (action: ReturnType<typeof getStoryIdsAction>) {
@@ -28,9 +28,13 @@ export function* fetchStoryIds() {
 
 function* fetchItems(ids: string[]) {
   const items: Items = {}
-  const data: Story[] = yield call(getItems, ids)
-  data.forEach((story) => (items[story.id] = story))
-  yield items
+  const data: Story[] = yield all(ids.map((id) => call(getItem, id)))
+  data.forEach((story) => {
+    if (story) {
+      items[story.id] = story
+    }
+  })
+  return items
 }
 
 export function* fetchStoriesView() {

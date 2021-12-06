@@ -22,7 +22,7 @@ interface NavItem {
 
 const menus: NavItem[] = [
   { text: "Stories", to: "/stories" },
-  { text: "Comments", to: "/comments" },
+  { text: "Shows", to: "/shows" },
   { text: "Asks", to: "/asks" },
   { text: "Jobs", to: "/jobs" },
 ]
@@ -56,7 +56,7 @@ const Layout = () => {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar disableGutters>
           <Typography
             variant="h5"
@@ -124,6 +124,7 @@ const Layout = () => {
           </Box>
         </Toolbar>
       </AppBar>
+      <Toolbar />
       <Box component="main" sx={{ p: 3 }}>
         <Outlet />
       </Box>

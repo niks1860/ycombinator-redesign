@@ -2,6 +2,7 @@ import fetch from "./generic/fetch"
 
 export interface Story {
   id: string
+  [key: string | number]: string
 }
 
 export type StoryType = "top" | "new" | "best" | "show" | "ask" | "job"

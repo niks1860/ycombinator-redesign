@@ -35,6 +35,8 @@ const Pagination = ({ idSet, viewSet, getIds, getView, storyType, render }: Prop
   const view = viewSet[storyType].data
   const isLoading = idSet[storyType].loading || viewSet[storyType].loading
 
+  console.log("rendering:", view)
+
   const [page, setPage] = useState(1)
   const [pageSize, setPageSize] = useState(20)
 
@@ -67,7 +69,7 @@ const Pagination = ({ idSet, viewSet, getIds, getView, storyType, render }: Prop
           <CircularProgress sx={{ mt: 5, mb: 5 }} />
         ) : (
           <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-            {view.map((story) => render({ story }))}
+            {view.map((story) => (story ? render({ story }) : null))}
           </List>
         )}
         <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
